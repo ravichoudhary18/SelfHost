@@ -10,10 +10,7 @@ app = FastAPI(
     debug=settings.DEBUG,
 )
 
-origins = [
-    "http://localhost:5173",  # Vite React dev server
-    "http://localhost:3000",  # if CRA
-]
+origins = allow_origins=settings.ALLOWED_ORIGINS
 
 app.add_middleware(
     CORSMiddleware,
