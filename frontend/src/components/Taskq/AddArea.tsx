@@ -8,15 +8,16 @@ import axios from 'axios';
 import useAxiosInterface from '../../hooks/useAxiosInterface';
 import { createTask } from '../../services/taskApi';
 import type { Task, TaskStatus } from '../../types/task';
-import { TASK_STATUS } from '../../types/task';
+import { TASK_STATUS, type TaskForm } from '../../types/task';
 import { showToast } from '../../utils/toast';
 import SubmitButton from '../Inputs/SubmitButton';
 
 const AddArea: React.FC = () => {
-  const [inputs, setInputs] = useState<Task>({
+  const [inputs, setInputs] = useState<TaskForm>({
+    id: 0,
     title: '',
     description: '',
-    status: TASK_STATUS.PENDING,
+    status: '',
     due_date: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -50,6 +51,7 @@ const AddArea: React.FC = () => {
 
       // Reset form
       setInputs({
+        id: 0,
         title: '',
         description: '',
         status: TASK_STATUS.PENDING,

@@ -18,3 +18,7 @@ export interface Task {
   created_by?: number;
   updated_by?: number;
 }
+
+export type TaskForm = Omit<Task, 'status'> & {
+  status: TaskStatus | '';
+};

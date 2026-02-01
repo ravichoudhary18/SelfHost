@@ -10,6 +10,7 @@ const TaskArea: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const axiosInterface = useAxiosInterface();
   const [statusFilter, setStatusFilter] = useState<Task['status'] | ''>('');
+
   const fetchTasks = async () => {
     const response = await getTasks(statusFilter, axiosInterface);
     setTasks(response.data);

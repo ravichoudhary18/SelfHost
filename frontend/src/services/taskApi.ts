@@ -1,8 +1,8 @@
 import { type AxiosInstance, type AxiosResponse } from 'axios';
-import type { Task } from '../types/task';
+import type { Task, TaskForm } from '../types/task';
 
 export async function createTask(
-  task: Task,
+  task: TaskForm,
   axiosInterface: AxiosInstance,
 ): Promise<AxiosResponse> {
   const response = await axiosInterface.post('/api/v1/tasks/tasks', {
