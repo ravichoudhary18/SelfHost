@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Liquid Chrome & Neon Theme */
+  --color-liquid-black: #050505;
+  --color-chrome-silver: #e2e8f0;
+  --color-neon-cyan: #00f3ff;
+  --color-neon-purple: #bc13fe;
+
+  --font-display: 'Montserrat', sans-serif;
+}
+
+@layer base {
+  /* This ensures the scrollbar and overscroll match the theme */
+  html {
+    @apply transition-colors duration-500;
+  }
+
+  html.dark {
+    color-scheme: dark;
+    background-color: var(--color-liquid-black);
+  }
+
+  html:not(.dark) {
+    color-scheme: light;
+    background-color: #ffffff;
+  }
+}
+
+button {
+  cursor: pointer;
+}
